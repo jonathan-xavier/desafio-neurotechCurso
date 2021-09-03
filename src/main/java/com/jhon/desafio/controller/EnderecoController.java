@@ -35,7 +35,7 @@ public class EnderecoController {
 	public ResponseEntity<Endereco> save(@Valid @RequestBody Endereco endereco,
 			HttpServletResponse response) {
 		Endereco enderecoSalvo = repository.save(endereco);
-		//retorna no header o endereço criado
+		//retorna no header o endereço criado a uri.
 		publisher.publishEvent(new RecursoCriadoEvent(this, response, enderecoSalvo.getId()));
 		
 		
